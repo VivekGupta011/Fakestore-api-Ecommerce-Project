@@ -6,13 +6,13 @@ import { fetchProducts } from "../store/productSlice";
 import { STATUSES } from "../store/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../store/cartSlice";
-function ProductsItem({Count,Total,setCount,setTotal}) {
+function ProductsItem({ Count, Total, setCount, setTotal }) {
     const dispatch = useDispatch();
     // data:products basically we changing the name of object data to products using Javscript
     // const {data:products,status}=useSelector((state)=>state.product);
     const { data, status } = useSelector((state) => state.product);
 
-    
+
     // for filtering
     const [Clone, SetClone] = useState([]);
 
@@ -30,28 +30,28 @@ function ProductsItem({Count,Total,setCount,setTotal}) {
     }, []
     )
 
-    useEffect(()=>{
+    useEffect(() => {
         handleAllFilter(data);
         console.log("clone:")
         console.log(Clone);
-    },[data])
+    }, [data])
 
 
-   const temp=0;
+    const temp = 0;
     const handleAdd = (product) => {
         dispatch(add(product));
-        setCount(Count+1);
+        setCount(Count + 1);
 
     };
 
     // handle setFilter
     const handleFilter = (category, data) => {
         SetClone(data.filter((item) => item.category == category));
-      
+
     }
 
     // handle All set Filter
-    function handleAllFilter(data){
+    function handleAllFilter(data) {
         SetClone(data);
         // console.log("data");
         // console.log(Clone);
@@ -77,26 +77,25 @@ function ProductsItem({Count,Total,setCount,setTotal}) {
             <div className="Custom-responsive container">
                 {
                     Clone.map((item) => (
-
-
-
-                        <div className="card mb-3" key={item.id} style={{ maxWidth: 540 }}>
-                            <div className="row g-0">
-                                <div className="col-md-4 p-3">
-                                    <img src={item.image} className="img-fluid rounded-start" alt="..." />
-                                </div>
-                                <div className="col-md-8">
-                                    <div className="card-body">
-                                        <h5 className="card-title">{item.title}</h5>
-                                        {/* <p className="card-text">{item.description}</p> */}
-                                        <p className="card-text"><b>${item.price}</b> </p>
-                                        <p className="card-text">rate:<b>{item.rating.rate}</b> & count:<b>{item.rating.count}</b></p>
-                                        <p className="card-text"><small className="text-muted">Category:<b>{item.category}</b></small></p>
-                                        <button className="btn btn-primary" disabled={false} onClick={() => handleAdd(item)}>Add to cart</button>
+                        <Link to={`/product/${item.id}`}>
+                            <div className="card mb-3" key={item.id} style={{ maxWidth: 540 }}>
+                                <div className="row g-0">
+                                    <div className="col-md-4 p-3">
+                                        <img src={item.image} className="img-fluid rounded-start" alt="..." />
+                                    </div>
+                                    <div className="col-md-8">
+                                        <div className="card-body">
+                                            <h5 className="card-title">{item.title}</h5>
+                                            {/* <p className="card-text">{item.description}</p> */}
+                                            <p className="card-text"><b>${item.price}</b> </p>
+                                            <p className="card-text">rate:<b>{item.rating.rate}</b> & count:<b>{item.rating.count}</b></p>
+                                            <p className="card-text"><small className="text-muted">Category:<b>{item.category}</b></small></p>
+                                            <button className="btn btn-primary" disabled={false} onClick={() => handleAdd(item)}>Add to cart</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))
                 }
             </div>

@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './store/store';
 import NavbarComponent from './NavbarComponent';
 import Slider from './component/Slider';
+import ProductDetail from './component/ProductDetail';
 
 function App() {
   const[count,setCount]=useState(0);
@@ -22,6 +23,7 @@ function App() {
             <Routes>
               <Route exact path='/' element={< ProductsItem Count={count} Total={total} setCount={setCount} setTotal={setTotal}/>}></Route>
               <Route exact path='/cart' element={< Cart Count={count} Total={total} setCount={setCount} setTotal={setTotal} />}></Route>
+              <Route exact path='/product/:id' element={<ProductDetail/>}></Route>
             </Routes>
           </div>
         </Router>
