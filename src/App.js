@@ -23,7 +23,7 @@ function App() {
             <Routes>
               <Route exact path='/' element={< ProductsItem Count={count} Total={total} setCount={setCount} setTotal={setTotal}/>}></Route>
               <Route exact path='/cart' element={< Cart Count={count} Total={total} setCount={setCount} setTotal={setTotal} />}></Route>
-              <Route exact path='/product/:id' element={<ProductDetail/>}></Route>
+              <Route exact path='/products/:id' element={<ProductDetail/>}></Route>
             </Routes>
           </div>
         </Router>

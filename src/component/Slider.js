@@ -1,6 +1,6 @@
 export default function Slider() {
     return (
-        <div className="container">
+        <div>
             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">

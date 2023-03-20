@@ -77,7 +77,7 @@ function ProductsItem({ Count, Total, setCount, setTotal }) {
             <div className="Custom-responsive container">
                 {
                     Clone.map((item) => (
-                        <Link to={`/product/${item.id}`}>
+                        <Link to={`/products/${item.id}`}>
                             <div className="card mb-3" key={item.id} style={{ maxWidth: 540 }}>
                                 <div className="row g-0">
                                     <div className="col-md-4 p-3">
