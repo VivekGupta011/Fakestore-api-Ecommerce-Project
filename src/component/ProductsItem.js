@@ -19,6 +19,8 @@ function ProductsItem({Count,Total,setCount,setTotal}) {
 
     useEffect(() => {
         dispatch(fetchProducts());
+        console.log("This is data api:")
+        console.log(data);
         // fetch('https://fakestoreapi.com/products')
         //     .then(response => response.json())
         //     .then(products => {
@@ -30,6 +32,8 @@ function ProductsItem({Count,Total,setCount,setTotal}) {
 
     useEffect(()=>{
         handleAllFilter(data);
+        console.log("clone:")
+        console.log(Clone);
     },[data])
 
 
@@ -49,8 +53,8 @@ function ProductsItem({Count,Total,setCount,setTotal}) {
     // handle All set Filter
     function handleAllFilter(data){
         SetClone(data);
-        console.log("data");
-        console.log(Clone);
+        // console.log("data");
+        // console.log(Clone);
     }
 
     if (status === STATUSES.LOADING) {
