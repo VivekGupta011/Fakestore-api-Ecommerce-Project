@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import "../App.css";
+import { Footer } from "./Footer";
 import { remove } from "../store/cartSlice";
 export function Cart({ Count, Total, setCount, setTotal }) {
     const dispatch = useDispatch();
@@ -12,11 +13,12 @@ export function Cart({ Count, Total, setCount, setTotal }) {
     }
     return (
 
+       <>
         <div className="container">
             <div className="row">
                 <div className="col-lg-8 col-xs-12 py-5 px-5 cart-css">
                     {data.map((item) => (
-                        <div className="card mb-3" style={{ maxWidth: 540 }} key={item.id}>
+                        <div className="card mb-3 card-5" style={{ maxWidth: 540 }} key={item.id}>
                             <div className="row g-0">
                                 <div className="col-md-4">
                                     <img src={item.image} className="img-fluid rounded-start" alt="..." />
@@ -54,6 +56,8 @@ export function Cart({ Count, Total, setCount, setTotal }) {
 
             </div>
         </div>
+        <Footer/>
+       </>
 
     )
 }

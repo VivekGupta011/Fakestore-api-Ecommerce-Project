@@ -1,12 +1,48 @@
 body {
     position: relative;
+    background: #e2e1e0;
+    text-align: center;
   }
+
   .Custom-responsive {
     margin-bottom: 4rem;
+  }
+
+  /* custom btn */
+  .custom-button{
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr ;
+    grid-gap: 25px;
   }
   .App {
     text-align: center;
   }
+  /* .button.btn.custom-btn.btn-outline-dark:hover{
+    color: black !important;
+
+  } */
+  .btn:hover{
+    background-color: white !important;
+    color: black !important;
+  }
+
+ 
+  /* self code */
+.Custom-Footer {
+  margin: 0 0;
+  padding: 2px 5px;
+  text-align: center;
+  background-color: rgba(225, 225, 225, 0.8);
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-bottom {
+  position: absolute;
+  bottom: -70px;
+}
   
   .App-logo {
     height: 40vmin;
@@ -17,6 +53,13 @@ body {
     .App-logo {
       animation: App-logo-spin infinite 20s linear;
     }
+  }
+
+  .card-5 {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  .card-5:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
   
   .App-header {
@@ -237,16 +280,29 @@ body {
       grid-column-gap: 25px;
       grid-row-gap: 55px;
     }
+    .custom-button{
+      display: grid;
+      grid-template-columns:  1fr 1fr 1fr ;
+      grid-gap: 25px;
+    }
    
   }
   
   @media (max-width: 768px) {
     .Custom-responsive {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-column-gap: 25px;
       grid-row-gap: 55px;
     }
+    .custom-col{
+      width: 100% !important;
+    }
+
+    .row.custom-grid.p-5{
+      flex-direction: column;
+    }
+
     .col-12.col-md-12.col-lg-6.d-flex.align-items-center.custom-responsive-hero {
       justify-content: center;
     }
@@ -316,7 +372,7 @@ body {
   @media (max-width: 576px) {
     .cart-css{
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
     }
     img.img-fluid.rounded-start {
       width: 46%;

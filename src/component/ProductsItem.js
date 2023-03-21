@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { fetchProducts } from "../store/productSlice";
 import { STATUSES } from "../store/productSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Footer } from "./Footer";
 import { add } from "../store/cartSlice";
 function ProductsItem({ Count, Total, setCount, setTotal }) {
     const dispatch = useDispatch();
@@ -66,40 +67,48 @@ function ProductsItem({ Count, Total, setCount, setTotal }) {
     return (
         <div>
 
-            <h1 className="py-2 px-3">Welcome to the Redux Toolkit store</h1>
-            <div className="d-flex" style={{ justifyContent: "space-evenly" }}>
-                <button className="btn btn-secondary btn-sm" type="button" style={{ width: "10%", fontWeight: "900" }} onClick={() => { handleAllFilter(data) }}>All</button>
-                <button className="btn btn-secondary btn-sm" type="button" style={{ width: "10%", fontWeight: "900" }} onClick={() => { handleFilter("men's clothing", data) }}>Men's Clothing</button>
-                <button className="btn btn-secondary btn-sm" type="button" style={{ width: "10%", fontWeight: "900" }} onClick={() => { handleFilter("women's clothing", data) }}>Women Clothing</button>
-                <button className="btn btn-secondary btn-sm" type="button" style={{ width: "10%", fontWeight: "900" }} onClick={() => { handleFilter("jewelery", data) }}>Jewelery</button>
-                <button className="btn btn-secondary btn-sm" type="button" style={{ width: "10%", fontWeight: "900" }} onClick={() => { handleFilter("electronics", data) }}>Electronic</button>
+            {/* <h1 className="py-2 px-3">Welcome to the Redux Toolkit store..</h1> */}
+
+            <strong><h2 className="text-center py-3">Most Trending Product!</h2></strong>
+            <hr></hr>
+            <div className="container" style={{ justifyContent: "space-evenly" }}>
+               <div className="custom-button">
+               <div> <button className="btn btn-secondary btn-sm px-5 py-1" type="button" style={{ fontWeight: "500" }} onClick={() => { handleAllFilter(data) }}>All</button></div>
+                <div><button className="btn btn-secondary btn-sm px-3 py-1" type="button" style={{ fontWeight: "500" }} onClick={() => { handleFilter("men's clothing", data) }}>Men's Clothing</button></div>
+                <div> <button className="btn btn-secondary btn-sm px-3 py-1" type="button" style={{  fontWeight: "500" }} onClick={() => { handleFilter("women's clothing", data) }}>Women Clothing</button></div>
+                <div> <button className="btn btn-secondary btn-sm px-3 py-1" type="button" style={{  fontWeight: "500" }} onClick={() => { handleFilter("jewelery", data) }}>Jewelery</button></div>
+                <div><button className="btn btn-secondary btn-sm px-3 py-1" type="button" style={{ fontWeight: "500" }} onClick={() => { handleFilter("electronics", data) }}>Electronic</button></div>
+               </div>
             </div>
             <div className="Custom-responsive container">
                 {
                     Clone.map((item) => (
-                        <Link to={`/products/${item.id}`}>
-                            <div className="card mb-3" key={item.id} style={{ maxWidth: 540 }}>
-                                <div className="row g-0">
-                                    <div className="col-md-4 p-3">
+                        <div className="card mb-3 card-5" key={item.id} style={{ maxWidth: 540 }}>
+                            <div className="row g-0">
+                                <div className="col-md-4 p-3">
+                                    <Link to={`/products/${item.id}`}>
                                         <img src={item.image} className="img-fluid rounded-start" alt="..." />
-                                    </div>
-                                    <div className="col-md-8">
-                                        <div className="card-body">
+                                    </Link>
+                                </div>
+                                <div className="col-md-8">
+                                    <div className="card-body">
+                                        {/* <p className="card-text">{item.description}</p> */}
+                                        <Link to={`/products/${item.id}`} style={{ textDecoration: 'none' }}>
                                             <h5 className="card-title">{item.title}</h5>
-                                            {/* <p className="card-text">{item.description}</p> */}
                                             <p className="card-text"><b>${item.price}</b> </p>
                                             <p className="card-text">rate:<b>{item.rating.rate}</b> & count:<b>{item.rating.count}</b></p>
                                             <p className="card-text"><small className="text-muted">Category:<b>{item.category}</b></small></p>
-                                            <button className="btn btn-primary" disabled={false} onClick={() => handleAdd(item)}>Add to cart</button>
-                                        </div>
+                                        </Link>
+                                        <button className="btn btn-primary mt-3" disabled={false} onClick={() => handleAdd(item)}>Add to cart</button>
                                     </div>
                                 </div>
                             </div>
-                        </Link>
+                        </div>
                     ))
                 }
             </div>
-        </div>
+            <Footer/>
+        </div >
     )
 
 }
