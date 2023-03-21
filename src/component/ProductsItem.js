@@ -41,7 +41,6 @@ function ProductsItem({ Count, Total, setCount, setTotal }) {
     const temp = 0;
     const handleAdd = (product) => {
         dispatch(add(product));
-        setCount(Count + 1);
 
     };
 
@@ -94,10 +93,10 @@ function ProductsItem({ Count, Total, setCount, setTotal }) {
                                     <div className="card-body">
                                         {/* <p className="card-text">{item.description}</p> */}
                                         <Link to={`/products/${item.id}`} style={{ textDecoration: 'none' }}>
-                                            <h5 className="card-title">{item.title}</h5>
-                                            <p className="card-text"><b>${item.price}</b> </p>
-                                            <p className="card-text">rate:<b>{item.rating.rate}</b> & count:<b>{item.rating.count}</b></p>
-                                            <p className="card-text"><small className="text-muted">Category:<b>{item.category}</b></small></p>
+                                            <h5 className="card-title" style={{color:"black"}}>{item.title}</h5>
+                                            <p className="card-text" style={{color:"black"}}><b>${Math.round(item.price)}</b> </p>
+                                            <p className="card-text" style={{color:"black"}}>rate:<b>{item.rating.rate}</b> & count:<b>{item.rating.count}</b></p>
+                                            <p className="card-text" style={{color:"black"}}><small className="text-muted">Category:<b><i>{item.category}</i></b></small></p>
                                         </Link>
                                         <button className="btn btn-primary mt-3" disabled={false} onClick={() => handleAdd(item)}>Add to cart</button>
                                     </div>

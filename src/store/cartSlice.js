@@ -7,20 +7,28 @@ const { createSlice } = require('@reduxjs/toolkit');
 // };
 const cartSlice=createSlice({
     name:'cart',
-    initialState:[],
+    initialState:{getCount:0,getTotal:0,products:[]},
     reducers:{
         add(state,action){
-            const num=state.findIndex((item)=>item.id===action.payload.id);
+            const num=state.products.findIndex((item)=>item.id===action.payload.id);
             if(num>=0){
                 alert("Already added!");
             }else{
-                state.push(action.payload);
+                console.log("action payload!");
+                console.log(action.payload.price)
+                state.products.push(action.payload);
+                state.getCount++;
+                state.getTotal+=action.payload.price;
+                console.log("price:"+state.getTotal);
             }
 
         },
         remove(state,action){
-            return state.filter((item)=>item.id!==action.payload);
-
+            state.getCount--;
+            // return state.products.filter((item)=>item.id!==action.payload);
+            state.products=state.products.filter((item)=>item.id!==action.payload.id);
+            state.getTotal-=action.payload.price;
+            console.log("price:"+state.getTotal);
         }
     }
 });

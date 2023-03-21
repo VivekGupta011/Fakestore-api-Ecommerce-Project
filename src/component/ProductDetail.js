@@ -4,11 +4,20 @@ import '../App.css'
 import { NavLink } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { Footer } from "./Footer";
+import { add } from "../store/cartSlice";
+import { useSelector,useDispatch } from "react-redux";
 
 function ProductDetail() {
 
     const [productData, setProductData] = useState({});
     const navigate = useNavigate();
+    const dispatch=useDispatch();
+
+    const handleAdd = (product) => {
+        dispatch(add(product));
+
+    };
+    
 
     // problem at time of nested destructuring
     // const { category, description, image, price, rating:{count,rate}, title } = productData;
@@ -57,12 +66,12 @@ function ProductDetail() {
                             <div className="card-body">
                                 <h6 className="card-title" style={{ color: "darkgray" }}><i>Category:<strong>{item.category}</strong></i></h6>
                                 <h2 className="card-title">{item.title}</h2>
-                                {/* <p className="card-text"><i><b>rating:{item.rating.rate!==undefined? item.rating.rate:""}★</b></i></p> */}
+                                {/* <p className="card-text"><i><b>rating:{item.rating}★</b></i></p> */}
                                 <h1><b>${item.price}</b></h1>
                                 <p>{item.description}</p>
                                 <div style={{ display: "flex", justifyContent: "start", gap: "3rem" }}>
                                     <div>
-                                        <NavLink to="/cart" className="btn btn-outline-dark">Add to Cart</NavLink  >
+                                        <button className="btn btn-outline-dark" onClick={() => handleAdd(item)}>Add to Cart</button  >
                                     </div>
                                     <div>
                                         <NavLink to="/cart" className="btn btn-primary">Go to Cart</NavLink  >
