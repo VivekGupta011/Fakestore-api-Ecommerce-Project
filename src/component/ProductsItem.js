@@ -79,6 +79,7 @@ function ProductsItem({ Count, Total, setCount, setTotal }) {
                 <div><button className="btn btn-secondary btn-sm px-3 py-1" type="button" style={{ fontWeight: "500" }} onClick={() => { handleFilter("electronics", data) }}>Electronic</button></div>
                </div>
             </div>
+            <hr></hr>
             <div className="Custom-responsive container">
                 {
                     Clone.map((item) => (

@@ -16,7 +16,7 @@ export function Cart({ Count, Total, setCount, setTotal }) {
         <>
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-8 col-xs-12 py-5 px-5 cart-css">
+                    <div className="col-lg-8 col-xs-12 py-4 px-3 cart-css">
                         {products.map((item) => (
                             <div className="card mb-3 card-5" style={{ maxWidth: 540 }} key={item.id}>
                                 <div className="row g-0">
@@ -61,15 +61,15 @@ export function Cart({ Count, Total, setCount, setTotal }) {
 
                         : (
                             <>
-                            <h1><i>Your Cart is Empty!</i></h1>
-                            <img src={emptyCartImg} className="img-fluid rounded mx-auto" style={{ display: "block", marginLeft: "auto", marginRight: "auto", width: "50%" }} />
+                                <h4><i>Your Cart is Empty!</i></h4>
+                                <img src={emptyCartImg} className="img-fluid rounded mx-auto" style={{ display: "block", marginLeft: "auto", marginRight: "auto", width: "35%" }} />
                             </>
                         )
 
                     }
-
-
                 </div>
+
+
             </div>
             <Footer />
         </>

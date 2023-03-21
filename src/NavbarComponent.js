@@ -13,7 +13,7 @@ function NavbarComponent({Count,Total}) {
         <div>
             <Navbar bg="light" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home"><Link to="/whale" style={{textDecoration:"none",color:"black"}}>Redux Toolkit</Link></Navbar.Brand>
+                    <Navbar.Brand href="#home"><Link to="/whale" style={{textDecoration:"none",color:"black"}}><strong>ƑąʂհìօղϚհօք</strong></Link></Navbar.Brand>
                     <Nav style={{marginRight:0}}>
                     <Navbar.Brand href="#home"><Link to="/" style={{textDecoration:"none",color:"black",fontWeight:500}}>Home</Link></Navbar.Brand>
                     <Navbar.Brand href="#home"><Link to="#" style={{textDecoration:"none",color:"black",fontWeight:500}}>About</Link></Navbar.Brand>

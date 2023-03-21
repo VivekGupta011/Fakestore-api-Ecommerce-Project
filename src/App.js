@@ -8,6 +8,8 @@ import store from './store/store';
 import NavbarComponent from './NavbarComponent';
 import Slider from './component/Slider';
 import ProductDetail from './component/ProductDetail';
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const[count,setCount]=useState(0);
@@ -17,6 +19,7 @@ function App() {
     <div>
       <Provider store={store}>
         <Router>
+          <ToastContainer/>
           <div className="container" style={{ maxWidth: "100%", padding: 0 }}>
             <NavbarComponent Count={count} Total={total}></NavbarComponent>
             <Slider></Slider>
