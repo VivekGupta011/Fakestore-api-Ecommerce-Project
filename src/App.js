@@ -10,7 +10,8 @@ import Slider from './component/Slider';
 import ProductDetail from './component/ProductDetail';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify';
-
+import Login from './component/LoginRegister/Login';
+import Register from './component/LoginRegister/Regitster';
 function App() {
   const[count,setCount]=useState(0);
   const[total,setTotal]=useState(0);
@@ -26,6 +27,8 @@ function App() {
             <Routes>
               <Route exact path='/' element={< ProductsItem Count={count} Total={total} setCount={setCount} setTotal={setTotal}/>}></Route>
               <Route exact path='/cart' element={< Cart Count={count} Total={total} setCount={setCount} setTotal={setTotal} />}></Route>
+              <Route exact path='/login' element={<Login/>}></Route>
+              <Route exact path='/Register' element={<Register/>}></Route>
               <Route exact path='/products/:id' element={<ProductDetail/>}></Route>
             </Routes>
           </div>

@@ -19,6 +19,7 @@ function NavbarComponent({Count,Total}) {
                     <Navbar.Brand href="#home"><Link to="#" style={{textDecoration:"none",color:"black",fontWeight:500}}>About</Link></Navbar.Brand>
                     <Navbar.Brand href="#home"><Link to="/cart" style={{textDecoration:"none",color:"black",fontWeight:500}}>Cart</Link></Navbar.Brand>
                     <Navbar.Brand href="#home"><Link to="/cart" style={{textDecoration:"none",color:"black",fontWeight:500}}><button className='btn custom-btn btn-outline-dark '><img src={cart} style={{width:"20px"}}/>({getCount})</button></Link></Navbar.Brand>
+                    <Navbar.Brand href="#home"><Link to="/login" style={{textDecoration:"none",color:"black",fontWeight:500}}><button className='btn custom-btn btn-outline-dark '>Login</button></Link></Navbar.Brand>
                     </Nav>
                 </Container>
             </Navbar>
