@@ -17,6 +17,8 @@ function ProductsItem({ Count, Total, setCount, setTotal }) {
     // for filtering
     const [Clone, SetClone] = useState([]);
 
+    
+
 
     useEffect(() => {
         dispatch(fetchProducts());
