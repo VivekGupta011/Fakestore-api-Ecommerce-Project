@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import { Footer } from "../Footer";
 // import Loader from './../Loader/Loader';
 import "../LoginRegister/Login.css";
 
@@ -10,7 +9,7 @@ const Register = () => {
     const [fName, setfName] = useState("");
     const [lName, setlName] = useState("");
     const [email, setEmail] = useState("");
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
   //  const [username, setUsername] = useState("");
     const [tel, setTel] = useState("");
     const [password, setPassword] = useState("");
@@ -20,45 +19,42 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log({ email, tel, password });
-        // signupUser();
+         signupUser();
         
-    //    setUsername("");
-      //  setPassword("");
     };
     
-    // const signupUser = ()=>{
+     const signupUser = ()=>{
     // setLoading(true);
-    // axios.post(`/api/signup`,{
-    //   fName,
-    //   lName,
-    //   email,
-    //   'phone':tel,
-    //   'pwd':password
-    // }).then(res => {
-    //   if(res.status===200){
-    //     alert("Success");
-    //     setEmail("");
-    //     setfName("");
-    //     setlName("");
-    //     setTel("");
-    //     setPassword("");
+     axios.post(`/api/signup`,{
+       fName,
+       lName,
+       email,
+       'phone':tel,
+       'pwd':password
+     }).then(res => {
+       if(res.status===200){
+         alert("Success");
+         setEmail("");
+         setfName("");
+         setlName("");
+         setTel("");
+         setPassword("");
     //     setLoading(false);
-    //   }
-    // }).catch(err=>{
+       }
+     }).catch(err=>{
     //   setLoading(false);
-    //   alert(err.response.data.errMsg);
-    // })
-//   }
-    // const gotoLoginPage = () => navigate("/loginPage");
+       alert(err.response.data.errMsg);
+     })
+   }
 
     return (
         <div>
             <Link to="/">
-            <div className="back" style={{background:"gainsboro"}}>
-                <span style={{textDecoration:"none",color:"black",display:"flex",alignItems:"center",padding:"5px",fontSize:"24px"}}><i class="fas fa-long-arrow-left"></i></span>
-                <h3 style={{color:"black"}}>Back to Shopping</h3>
-            </div>
-            </Link>
+        <div className="back">
+            <span style={{padding:"2px 10px 0px"}}><i class="fas fa-long-arrow-left"></i></span>
+            <h3>Back to Shopping</h3>
+        </div>
+        </Link>
         <div className='signup__container'>
             <h2>Sign up </h2>
             {/* {!loading ? ( */}
@@ -132,7 +128,6 @@ const Register = () => {
         //     )
         //   } */}
         </div>
-        <Footer/>
         </div>
     );
 };
