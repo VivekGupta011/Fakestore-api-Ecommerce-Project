@@ -93,14 +93,14 @@ app.get('/api/logout', Authenticate, (req,res)=>{
   res.status(200).send()
 })
 
-/*
+
 if (process.env.NODE_ENV === 'production') {
     //*Set static folder up in production
-    app.use(express.static('client/build'));
+    app.use(express.static('build'));
 
-    app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
+    app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'build','index.html')));
 }
-*/
+
 
 app.listen(5001,()=>{
   console.log("Server listening on localhost:5000");
