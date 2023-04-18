@@ -9,6 +9,27 @@
   <meta name="description" content="Web site created using create-react-app" />
   <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> -->
   <link rel="shortcut icon" href="../src/image/githublogo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  <title>CheapDeals.</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <script>
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      document.body.classList.add("resize-animation-stopper");
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        document.body.classList.remove("resize-animation-stopper");
+      }, 400);
+    });
+  </script>
+</body>
+</html>
+
   <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -19,6 +40,7 @@
   <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js" crossorigin></script>
 
   <script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
+
 
   
 

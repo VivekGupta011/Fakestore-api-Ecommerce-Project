@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../LoginRegister/Login.css";
 import Register from "./Regitster";
+import { Footer } from "../Footer";
 // import {setAuthenication} from './../../store/userSlice';
 import {useDispatch} from 'react-redux';
 // import Loader from './../Loader/Loader';
@@ -45,14 +46,14 @@ const Login = () => {
     return (
         <div>
             <Link to="/">
-            <div className="back">
-                <span style={{padding:"2px 10px 0px"}}><i class="fas fa-long-arrow-left"></i></span>
-                <h3>Back to Shopping</h3>
+            <div className="back" style={{background:"gainsboro"}}>
+                <span style={{textDecoration:"none",color:"black",display:"flex",alignItems:"center",padding:"5px",fontSize:"24px"}}><i class="fas fa-long-arrow-left"></i></span>
+                <h3 style={{color:"black"}}>Back to Shopping</h3>
             </div>
             </Link>
             <div className='login__container'>
                 <h2>Login </h2>
-                {/* {!loading ? ( */}
+              
                 <form className='login__form' onSubmit={handleSubmit}>
                     <label htmlFor='email'>Email</label>
                     <input
@@ -81,11 +82,9 @@ const Login = () => {
                         </span>
                     </p>
                 </form>
-                {/* // ) :(
-                //   <Loader />
-                // ) */}
-              {/* } */}
+                 
             </div>
+            <Footer/>
         </div>
     );
 };

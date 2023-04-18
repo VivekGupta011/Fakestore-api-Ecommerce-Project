@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import { Footer } from "../Footer";
 // import Loader from './../Loader/Loader';
 import "../LoginRegister/Login.css";
 
@@ -53,11 +54,11 @@ const Register = () => {
     return (
         <div>
             <Link to="/">
-        <div className="back">
-            <span style={{padding:"2px 10px 0px"}}><i class="fas fa-long-arrow-left"></i></span>
-            <h3>Back to Shopping</h3>
-        </div>
-        </Link>
+            <div className="back" style={{background:"gainsboro"}}>
+                <span style={{textDecoration:"none",color:"black",display:"flex",alignItems:"center",padding:"5px",fontSize:"24px"}}><i class="fas fa-long-arrow-left"></i></span>
+                <h3 style={{color:"black"}}>Back to Shopping</h3>
+            </div>
+            </Link>
         <div className='signup__container'>
             <h2>Sign up </h2>
             {/* {!loading ? ( */}
@@ -131,6 +132,7 @@ const Register = () => {
         //     )
         //   } */}
         </div>
+        <Footer/>
         </div>
     );
 };

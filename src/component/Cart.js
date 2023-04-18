@@ -6,6 +6,7 @@ import emptyCartImg from '../image/emptyCart.png';
 export function Cart({ Count, Total, setCount, setTotal }) {
     const dispatch = useDispatch();
     const { getCount, getTotal, products } = useSelector((state) => state.cart);
+    console.log("total:"+getTotal)
     console.log("thsi is data");
     console.log(products);
     const handleRemove = (productId) => {
@@ -17,7 +18,7 @@ export function Cart({ Count, Total, setCount, setTotal }) {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 col-xs-12 py-4 px-3 cart-css">
-                        {products.map((item) => (
+                        {products!==undefined && products.map((item) => (
                             <div className="card mb-3 card-5" style={{ maxWidth: 540 }} key={item.id}>
                                 <div className="row g-0">
                                     <div className="col-md-4">
@@ -41,7 +42,7 @@ export function Cart({ Count, Total, setCount, setTotal }) {
                             <div className="container">
                                 <div class="row custom-div">
                                     <div class="col"><strong>Total Items</strong></div>
-                                    <div class="col"><strong>{Math.round(getCount)}</strong></div>
+                                    <div class="col"><strong>{Math.round(products.length   )}</strong></div>
                                     <div class="w-100"></div>
                                     <div class="col"><strong>Total Amount</strong></div>
                                     <div class="col"><strong>${Math.round(getTotal)}</strong></div>
